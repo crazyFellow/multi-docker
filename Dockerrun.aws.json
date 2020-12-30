@@ -1,6 +1,6 @@
 {
 	"AWSEBDockerrunVersion": 2,
-	"conatinerDefinitions": [
+	"containerDefinitions": [
 		{
 			"name": "client",
 			"image": "wizard1988/multi-client",
