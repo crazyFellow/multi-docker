@@ -3,19 +3,19 @@ services:
     - docker
     
 before_install:
-    - docker build -t crazyfellow/react-test -f ./client/Dockerfile.dev ./client
+    - docker build -t wizard1988/react-test -f ./client/Dockerfile.dev ./client
     
 script:
-    - docker run -e CI=true crazyfellow/react-test npm test
+    - docker run -e CI=true wizard1988/react-test npm test
     
 after_success:
-    - docker build -t crazyfellow/multi-client ./client
-    - docker build -t crazyfellow/multi-nginx ./nginx
-    - docker build -t crazyfellow/multi-server ./server
-    - docker build -t crazyFellow/multi-worker ./worker
+    - docker build -t wizard1988/multi-client ./client
+    - docker build -t wizard1988/multi-nginx ./nginx
+    - docker build -t wizard1988/multi-server ./server
+    - docker build -t wizard1988/multi-worker ./worker
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push crazyfellow/multi-client
-    - docker push crazyfellow/multi-nginx
-    - docker push crazyfellow/multi-server
-    - docker push crazyfellow/multi-worker
+    - docker push wizard1988/multi-client
+    - docker push wizard1988/multi-nginx
+    - docker push wizard1988/multi-server
+    - docker push wizard1988/multi-worker
 
